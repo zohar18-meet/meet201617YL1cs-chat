@@ -1,43 +1,34 @@
 #2016-2017 PERSONAL PROJECTS: TurtleChat!
 #WRITE YOUR NAME HERE!
+'''zohar'''
 
-#####################################################################################
-#                                   IMPORTS                                         #
-#####################################################################################
-#import the turtle module
-#import the Client class from the turtle_chat_client module
-#Finally, from the turtle_chat_widgets module, import two classes: Button and TextInput
-#####################################################################################
-#####################################################################################
+import turtle
+from turtle_chat_client import Client
+from turtle_chat_widgets import Button, TextInput
+ 
+class TextBox(TextInput) :
+    def draw_box(self):
+        self.pos(200,100)
+        self.writer.pendown()
+        self.writer.goto(200+self.width, 100)
+        self.writer.goto(200+self.width, 100+self.height)
+        self.writer.goto(200, 100+self.height)
+        self.writer.goto (200,100)
+        self.writer.penup()
+    def write_msg(self):
+        self.writer.goto(200,100)
+        self.writer.pendown()
+        self.writer.clear()
+        self.writer.write(self.get_msg())
 
-#####################################################################################
-#                                   TextBox                                         #
-#####################################################################################
-#Make a class called TextBox, which will be a subclass of TextInput.
-#Because TextInput is an abstract class, you must implement its abstract
-#methods.  There are two:
-#
-#draw_box
-#write_msg
-#
-#Hints:
-#1. in draw_box, you will draw (or stamp) the space on which the user's input
-#will appear.
-#
-#2. All TextInput objects have an internal turtle called writer (i.e. self will
-#   have something called writer).  You can write new text with it using code like
-#
-#   self.writer.write(a_string_variable)
-#
-#   and you can erase that text using
-#
-#   self.writer.clear()
-#
-#3. If you want to make a newline character (i.e. go to the next line), just add
-#   \r to your string.  Test it out at the Python shell for practice
-#####################################################################################
-#####################################################################################
-
+class SendButton(Button):
+    def __init__(self,view,my_turtle=None,shape=None,pos=(0,0)):
+        pass
+        
+    def fun(self):
+        self.view.send_msg(new_msg)
+        
+        
 #####################################################################################
 #                                  SendButton                                       #
 #####################################################################################
@@ -201,3 +192,36 @@ if __name__ == '__main__':
         turtle.ontimer(check,_WAIT_TIME) #Check recursively
     check()
     turtle.mainloop()
+
+
+
+
+    
+#####################################################################################
+#                                   TextBox                                         #
+#####################################################################################
+
+#Because TextInput is an abstract class, you must implement its abstract
+#methods.  There are two:
+#
+#draw_box
+#write_msg
+#
+#Hints:
+#1. in draw_box, you will draw (or stamp) the space on which the user's input
+#will appear.
+#
+#2. All TextInput objects have an internal turtle called writer (i.e. self will
+#   have something called writer).  You can write new text with it using code like
+#
+#   self.writer.write(a_string_variable)
+#
+#   and you can erase that text using
+#
+#   self.writer.clear()
+#
+#3. If you want to make a newline character (i.e. go to the next line), just add
+#   \r to your string.  Test it out at the Python shell for practice
+#####################################################################################
+#####################################################################################
+

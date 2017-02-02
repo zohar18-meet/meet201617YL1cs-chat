@@ -18,7 +18,7 @@ class Button(metaclass=ABCMeta):
                             turtle is created.
         :param shape: shape for the turtle object.  Default=None, in which
                     case, the shape is the result of
-                    turtle.shape('square'); turtle.shapesize(2,10)
+                    turtle.shape('square'); turtle.shapesize(2,10)S
         :param pos: tuple input, (x,y), specifying the location of the
                     turtle object.
         '''
@@ -111,7 +111,7 @@ class TextInput(metaclass=ABCMeta):
         concrete classes.
 
         Opportunity, also, to clean strings - add in newlines,
-        '\r', for example, when needed, etc.
+        '\r', for example, when needed, etc. 
 
         Side effect method - no inputs or outputs, but
         new_msg may be changed.
