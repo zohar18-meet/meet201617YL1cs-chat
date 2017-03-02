@@ -23,40 +23,14 @@ class TextBox(TextInput) :
 
 class SendButton(Button):
     def __init__(self,view,my_turtle=None,shape=None,pos=(0,0)):
-        pass
+        self.view = view
+        super(SendButton,self).__init__()    
+
         
     def fun(self):
         self.view.send_msg()
-        
-        
-#####################################################################################
-#                                  SendButton                                       #
-#####################################################################################
-#Make a class called SendButton, which will be a subclass of Button.
-#Button is an abstract class with one abstract method: fun.
-#fun gets called whenever the button is clicked.  It's jobs will be to
-#
-# 1. send a message to the other chat participant - to do this,
-#    you will need to call the send method of your Client instance
-# 2. update the messages that you see on the screen
-#
-#HINT: You may want to override the __init__ method so that it takes one additional
-#      input: view.  This will be an instance of the View class you will make next
-#      That class will have methods inside of it to help
-#      you send messages and update message displays.
-#####################################################################################
-#####################################################################################
 
 
-##################################################################
-#                             View                               #
-##################################################################
-#Make a new class called View.  It does not need to have a parent
-#class mentioned explicitly.
-#
-#Read the comments below for hints and directions.
-##################################################################
-##################################################################
 class View:
     _MSG_LOG_LENGTH=5 #Number of messages to retain in view
     _SCREEN_WIDTH=300
@@ -68,15 +42,10 @@ class View:
         :param username: the name of this chat user
         :param partner_name: the name of the user you are chatting with
         '''
-        ###
-        #Store the username and partner_name into the instance.
-        ###
-
-        ###
-        #Make a new client object and store it in this instance of View
-        #(i.e. self).  The name of the instance should be my_client
-        ###
-
+        self.username=username
+        self.partner_name=partnername
+        self.my_client = Client ()
+        
         ###
         #Set screen dimensions using turtle.setup
         #You can get help on this function, as with other turtle functions,
@@ -102,7 +71,7 @@ class View:
         #You can use the clear() and write() methods to erase
         #and write messages for each
         ###
-
+    
         ###
         #Create a TextBox instance and a SendButton instance and
         #Store them inside of this instance
