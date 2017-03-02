@@ -26,7 +26,7 @@ class SendButton(Button):
         pass
         
     def fun(self):
-        self.view.send_msg(new_msg)
+        self.view.send_msg()
         
         
 #####################################################################################
